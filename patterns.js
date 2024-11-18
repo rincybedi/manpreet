@@ -31,7 +31,7 @@ class DatabaseFactory {
 }
 
 //observer
-//use case - event driven systems
+//use case - event driven systems like event listeners, chat apps, context api, stock market price updating
 class Subject {
   constructor() {
     this.observers = [];
@@ -56,10 +56,13 @@ class Observer {
   }
 }
 
-const o1 = new Observer()
-const o2 = new Observer()
+const o1 = new Observer();
+const o2 = new Observer();
 
-const subject = new Subject()
-subject.addObserver(o1)
-subject.addObserver(o2)
-subject.notifyObservers('Hey from subject')
+const subject = new Subject();
+subject.addObserver(o1);
+subject.addObserver(o2);
+subject.notifyObservers("Hey from subject");
+
+//strategy
+//refer ocp , 1. Payment Processing System, Sorting
