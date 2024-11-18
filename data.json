@@ -1,0 +1,18 @@
+[
+  {
+    "name": "root",
+    "isFolder": true,
+    "items": [
+      {
+        "name": "styles",
+        "isFolder": true,
+        "items": [{ "name": "1.css", "isFolder": false }]
+      },
+      {
+        "name": "scripts",
+        "isFolder": true,
+        "items": [{ "name": "1.js", "isFolder": false }]
+      }
+    ]
+  }
+]
