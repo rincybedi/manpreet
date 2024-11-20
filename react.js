@@ -24,3 +24,5 @@ const withAuth = (Component) =>{
 }
 const ProtectedPage = withAuth(Page)
 
+
+

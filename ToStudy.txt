@@ -54,4 +54,17 @@ Solid
 Design pattern
 Design a system
 Web vitals
-Prompt engineerin
+Prompt engineering
+nextjs & Caching
+Worker process
+Web components
+Navigator object 
+defer vs async
+// Today
+Docker
+web vitals
+design a system
+Painting
+Hmr
+nextjs
+Worker process

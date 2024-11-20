@@ -154,3 +154,12 @@ console.log(original);
 const myObj = Object.freeze({ key: 'value' });
 myObj.key = 'newValue'; // This will not change the object
 console.log(myObj);     // Output: { key: 'value' }
+
+// Creating cutsom event
+window.addEventListener("myEvent", (e) => {
+  console.log(e.detail);
+});
+window.dispatchEvent(
+  new CustomEvent("myEvent", { detail: "Manpreet Custom Event" })
+);
+

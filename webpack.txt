@@ -1,0 +1,28 @@
+
+Cache busting: The [contenthash] in the filename (like main.xyz456.js) is a hash of the file's content. This is used for cache busting. If the file content changes, the hash will change, forcing the browser to fetch the latest version of the file.
+
+babel-loader:
+babel-loader: The Webpack loader that integrates Babel with Webpack.
+@babel/core: The core Babel library for JavaScript transformation.
+@babel/preset-env: A preset that compiles ES6+ code down to ES5 for broader browser support.
+@babel/preset-react: A preset to handle JSX syntax in React applications. // React.createElement()
+
+SplitChunksPlugin,
+HtmlWebpackPlugin for generating HTML files with the bundled script.
+MiniCssExtractPlugin for extracting CSS into separate files.
+
+Hot Module Replacement (HMR) for development. - only the module thats changed is updated in broswer using websocket, rest page is preserved
+Code splitting- lazy loaded compnents in separate chunks
+Minification(, spaces, comments removed- TerserWebpackPlugin) and Tree Shaking (unsued functions)for production builds.
+Source map  - complied minfied code to original code for debugging
+
+const HeavyComponent = React.lazy(()=> import('./Heavy'))
+<Suspense fallback={<Loading/>}>
+    <HeavyComponent/>
+</Suspense>
+
+build/static/js folder
+main.js - all app bundled code
+vendor.js - shared react, react-dom bundle
+1.js // HeavyComponent chunk - ondemand
+When the user interacts with your app (e.g., navigating to the route that requires HeavyComponent), Webpack will load the chunk containing HeavyComponent on demand, reducing the initial loading time of your application.
