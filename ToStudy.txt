@@ -1,0 +1,57 @@
+Babel loader
+Micro frontend
+Ssr ssg
+Seo
+Meta
+Cookies
+Ssl
+Jwt
+Oauth
+Dotenv
+Hashicorp vault
+Aws basics
+Route config
+Caching
+Ef linq
+React hooks
+Hoc
+Useref
+Desin pattern
+System desin
+Middleware 
+Array methods 
+Currying 
+Debouce vs throttle
+Promises
+Versioning
+Hmr
+Deepclone
+Call apply bind
+Defer async
+Foreach vs for of
+No sql vs sql
+Non serverless machines like EC2 - spin server configure it autoscale manually install dependencies manually : all underlying infrastructure mainted by us
+Build based in invocation
+Event loop
+Bubbling capturing
+Prototypal inheritance
+Polyfill
+Oops
+Arrow fn
+Tailwind
+Painting
+Dom traversal
+Cors
+Csrf
+Csp
+Xss
+Axios
+Thunk
+React custom hook
+Docker
+Immutable
+Solid
+Design pattern
+Design a system
+Web vitals
+Prompt engineerin

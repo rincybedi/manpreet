@@ -141,3 +141,16 @@ const duplicates = Object.entries(counts)
   .map(([num, count]) => ({ number: Number(num), count }));
 
 console.log(duplicates);
+
+// shallow copy
+const original = { name: 'Alice', details: { age: 25, city: 'New York' } };
+const shallowCopy = { ...original };
+
+console.log(shallowCopy.details === original.details); 
+shallowCopy.details.age = 30;
+shallowCopy.name = 'manpreet'
+console.log(original); 
+
+const myObj = Object.freeze({ key: 'value' });
+myObj.key = 'newValue'; // This will not change the object
+console.log(myObj);     // Output: { key: 'value' }

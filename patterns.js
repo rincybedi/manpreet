@@ -32,8 +32,10 @@ class DatabaseFactory {
 
 //observer
 //use case - event driven systems like event listeners, chat apps, context api, stock market price updating
-class Subject {
-  constructor() {
+class Stock {
+  constructor(symbol) {
+    this.symbol = symbol;
+    this.price = 0;
     this.observers = [];
   }
 
@@ -45,24 +47,37 @@ class Subject {
     this.observers = this.observers.filter((x) => x !== observer);
   }
 
-  notifyObservers(msg) {
-    this.observers.forEach((x) => x.update(msg));
+  notifyObservers() {
+    this.observers.forEach((x) => x.update(this));
+  }
+
+  setPrice(newPrice) {
+    if (this.price != newPrice) {
+      this.price = newPrice;
+      this.notifyObservers();
+    }
   }
 }
 
 class Observer {
-  update(msg) {
-    console.log(msg);
+  constructor(name) {
+    this.name = name;
+  }
+  update(stock) {
+    console.log(
+      `client: ${this.name} notfified about ${stock.symbol} for price ${stock.price}`
+    );
   }
 }
 
-const o1 = new Observer();
-const o2 = new Observer();
+const o1 = new Observer("Client 1");
+const o2 = new Observer("Client 2");
 
-const subject = new Subject();
+const subject = new Stock("AAPL");
 subject.addObserver(o1);
 subject.addObserver(o2);
-subject.notifyObservers("Hey from subject");
+subject.setPrice(100);
+subject.setPrice(55500);
 
 //strategy
 //refer ocp , 1. Payment Processing System, Sorting
