@@ -1,4 +1,4 @@
-//singleton Pattern
+// singleton Pattern
 // use case- 1 db con, logging, config settings
 class Singleton {
   constructor() {

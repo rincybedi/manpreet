@@ -1,0 +1,158 @@
+https://chatgpt.com/share/6741a009-1d18-8004-9a0f-93e7d6debabb
+ELASTIC SEARCH 
+For full text Search Queries
+    - Typos or Fuzzy matching
+    - Ranking
+    - Synonyms
+    - highlighting matching terms
+Provides analytics like histograms,summarizing data 
+Real time search as latency is high and is based on distributed architecture(horizontal scaling of nodes)
+
+NOT Acid compliant
+NOT optimized for data storage
+
+Data is stored as document json 
+Documents are grouped into an index
+Shard stores documents
+say 1 shard store 200k docs takes search 10s
+horizontal scaling for 10 shards can reduce time to 1s 
+Precision and recall - Score is high for more relevant documents
+
+==========================================
+//Web vitals
+LCP and FCP
+- largest content to be painted in vieport <2.5 spaces
+- cdn, compress image , use webp, ssr
+
+FID
+- interaction response from broswer with 100 ms
+- make main js thread free , async defer attr for Render-blocking resources, reduce js file size - codesplitting, async 
+
+CLS Cumulative Layout Shift (CLS):
+- Visual stability of a page
+- Images Without Dimensions
+-Ads, Embeds, or Iframes Loading Late:
+-Fonts Loading Late: 
+- 0.1 
+
+========================================
+KAFKA 
+1 DB has low throughput ie ops is less
+COmponents:
+1. Producer
+2. Consumer & Consumer Groups
+3. Topics and Partitions
+Autobalancing in partitions
+1 consumer can consume multiple partitions
+1 partition cant be consumed by multiple consumers
+Queue and Pub/Sub 
+Rabbitmq, SQS - Queue system
+Queue : No of consumers = no of Partitions   
+Kafka uses zookeeper as message broker
+Prompt user for name and partition like Manpreet North
+Based on location, message is either received at partiton 1 or 2
+
+========================================
+DOCKER 
+For a new dev - setup everything with same version of dependencies is tough and what if the system is different?
+Replicating multiple environment is tough
+Deploying in cloud again will need the whole setup
+Daeomon does all the work of building imgs, running imgs, container
+Docker Desktop - GUI
+docker run -it ubuntu 
+1 container with random id is created with image ubuntu running
+now if you ls or do any cmd, u r inside that ubuntu machine inside that container
+Container runs in isolation
+Mac and OS - Container and Image
+Image runs on a container
+2 or more containers running 1same image will run in isolation
+We build a custom image as per project requirement, deploy it and run it
+docker start/stop [container-name]
+Port mapping - expose or map container port to local machine port : -p [local's port]:[container's]
+Dockerize - 
+Dockerfile build using : docker build -t mynode-app
+
+FROM [baseimage] //use any base img say ubuntu
+RUN [cmd] //instal node 
+COPY src dest //copy files
+ENTRYPOINT ["node", "main.js"]
+
+docker run -it -p 9000:9000 mynode-app
+
+Docker compose : docker compose up - stack of containers running 
+multiple containers in a project
+docker-compose.yml:
+version: 1.0.0
+services:
+    postgres:
+        image:postgres
+        ports: 3000:3000
+        environment: name=value
+    redis ....
+
+=================================
+React 19 upgrade:
+- Better React compiler - useCallback, useMemo
+- action api - useActionState for form  
+- metdata in react component instead of helmet
+- use "server" - for ssr like next js
+===========
+
+SSR vs Server components
+React js
+------
+
+Server:                                      DB Query
+
+Client: JS bundle download |  Render Shell |         | ReRender |
+                  Blank Screen            FCP                   Fully Interactive
+                                          TTI                     
+
+SEO - low 
+
+
+
+SSR
+-----
+
+
+Server: DB Query | Render Shell |
+
+Client:                            JS Bundle | Hydration |
+                                FCP                      TTI
+
+
+Server COmponents
+-----
+Most of the components are non interactive 
+200 - 150 are non interactive - they can be server COmponents
+50 can be marked 'use client'
+so that JS Bundle size is slow + Hydration can be quick
+
+
+=============
+Caching
+store frequently accessed datat in cache like user profile
+- to avoid network calls
+- to avoid calculating expensive computational data
+- avoid load on db
+
+- costly build on ssd
+- data becomes more, then may become slow
+
+Cache policy - loading and evictiing data
+LRU: most recently used item is put on top of the cache, least at bottom
+Sliding Window
+Good cache policy - hit ratio is Good
+Write thru cache - update cache, the push to db 
+Write back - hit dnb then update cache 
+
+===========
+Closures is used in 
+useState
+Currying
+Memoization
+Delayed execution like setTimeout
+Event handlers
+
+

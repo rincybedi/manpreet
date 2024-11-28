@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "study", "study", "{B66F2B20-0B9C-4A3C-A54C-793237539C11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "programs", "programs", "{082BC7E2-55FB-4049-85ED-F9DC3E20A935}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp-app", "csharp-app", "{78B0620A-668E-400C-A8A9-1FBFB518F0C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCSharpApp", "study\programs\csharp-app\MyCSharpApp\MyCSharpApp.csproj", "{B0F10CA5-0E89-4734-A496-F47CE8D03615}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0F10CA5-0E89-4734-A496-F47CE8D03615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0F10CA5-0E89-4734-A496-F47CE8D03615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0F10CA5-0E89-4734-A496-F47CE8D03615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0F10CA5-0E89-4734-A496-F47CE8D03615}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{082BC7E2-55FB-4049-85ED-F9DC3E20A935} = {B66F2B20-0B9C-4A3C-A54C-793237539C11}
+		{78B0620A-668E-400C-A8A9-1FBFB518F0C9} = {082BC7E2-55FB-4049-85ED-F9DC3E20A935}
+		{B0F10CA5-0E89-4734-A496-F47CE8D03615} = {78B0620A-668E-400C-A8A9-1FBFB518F0C9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46976302-E8AE-4B24-8933-A04290C7EEA2}
+	EndGlobalSection
+EndGlobal

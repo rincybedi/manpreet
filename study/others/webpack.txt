@@ -1,4 +1,4 @@
-
+Webpack 5:
 Cache busting: The [contenthash] in the filename (like main.xyz456.js) is a hash of the file's content. This is used for cache busting. If the file content changes, the hash will change, forcing the browser to fetch the latest version of the file.
 
 babel-loader:

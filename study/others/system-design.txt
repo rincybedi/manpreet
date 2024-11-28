@@ -1,0 +1,43 @@
+SCALING 
+horizontal scaling
+ - load balancing required
+ - consistency required
+ - resilient, no single point of failure
+ 
+
+ sql vs no sql
+ - acid+transaction in sql
+ - for larger data - logging or analytics
+ - sql is vertical scalable, nosql is horizontal
+ - graph based data - neo 
+ - hierachical/nested data - no sql
+ - key value or document based - no sql
+
+
+ Consistent hashing, Round robin
+
+
+Plan:
+1. requirements
+2. decision 
+    - scalablity, 
+    - availability
+    - consistency, cap
+    - Caching, Redis for user sessions
+    - db Design
+    - sharding 
+    - partitioning
+    - load balancing
+    - cdn
+    - messaging queue system
+    - rate limiting - ddos attack
+    - web socket
+    - Elastic search
+    - security
+    
+
+
+
+
+
+

@@ -60,11 +60,9 @@ Worker process
 Web components
 Navigator object 
 defer vs async
-// Today
-Docker
-web vitals
-design a system
-Painting
-Hmr
-nextjs
-Worker process
+Elastic Search
+Kafka
+React 19 upgrade
+Webpack
+SSR vs Server components 
+                
