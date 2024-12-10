@@ -239,3 +239,91 @@ function throttle(fn, delay) {
   };
 }
 
+// constructor functions / class
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.getName = function () {
+  console.log("Name, ctor fn:", this.name);
+};
+
+// var person222 = new Person("Rincy");
+// person222.getName();
+
+class Person22 {
+  constructor(name) {
+    this.name = name;
+  }
+  getName() {
+    console.log("Name, class:", this.name);
+  }
+}
+var person222 = new Person22("Rincy");
+person222.getName();
+
+// extends before es6
+function Animal(legs) {
+  this.legs = legs;
+  this.walk = function () {
+    console.log("can walk with legs", legs);
+  };
+}
+
+function Bird(legs) {
+  Animal.call(this, legs); // super(legs)
+  this.fly = function () {
+    console.log("can fly");
+  };
+}
+
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Animal;
+
+var sparrow = new Bird(4);
+sparrow.walk();
+sparrow.fly();
+
+// Stack
+class Stack {
+  constructor() {
+    this.list = [];
+    this.minList = [];
+  }
+  push(val) {
+    this.list.push(val);
+    if (
+      this.minList.length === 0 ||
+      this.minList[this.minList.length - 1] > val
+    ) {
+      this.minList.push(val);
+    } else {
+      this.minList.push(this.minList[this.minList.length - 1]);
+    }
+  }
+  getMin() {
+    return this.minList[this.minList.length - 1];
+  }
+  pop() {
+    this.minList.pop();
+    return this.list.pop();
+  }
+  printStack() {
+    console.log(
+      "Stack (top to bottom):",
+      this.list.slice().reverse().join(", ")
+    );
+  }
+}
+
+const stack = new Stack();
+stack.push(5);
+stack.push(3);
+stack.push(7);
+stack.push(2);
+stack.printStack();
+console.log(stack.getMin()); // 3
+stack.pop();
+console.log(stack.getMin()); //3
+stack.pop();
+console.log(stack.getMin()); //5
+stack.printStack();

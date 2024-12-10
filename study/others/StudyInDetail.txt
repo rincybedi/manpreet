@@ -1,4 +1,6 @@
 https://chatgpt.com/share/6741a009-1d18-8004-9a0f-93e7d6debabb
+https://srijansinghgulati.medium.com/my-apple-interview-experience-and-why-i-declined-the-offer-5ff442962bd8
+
 ELASTIC SEARCH 
 For full text Search Queries
     - Typos or Fuzzy matching
@@ -154,5 +156,12 @@ Currying
 Memoization
 Delayed execution like setTimeout
 Event handlers
+
+=========
+Cookies -(expiry, http only) Remember me, User theme, User preferences, SesionId, Jwt token
+session storage  (temp data)- form data, shopping cart data
+local storage (persistent data) - saved articles,      
+=========
+
 
 

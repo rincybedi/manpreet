@@ -21,7 +21,7 @@ const HeavyComponent = React.lazy(()=> import('./Heavy'))
     <HeavyComponent/>
 </Suspense>
 
-build/static/js folder
+build/static/js folder      
 main.js - all app bundled code
 vendor.js - shared react, react-dom bundle
 1.js // HeavyComponent chunk - ondemand

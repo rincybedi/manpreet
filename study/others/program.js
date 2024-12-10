@@ -4,7 +4,7 @@ const inputEl = document.querySelector("input");
 
 inputEl?.addEventListener("keydown", (e) => {
   const search = e.target.value?.toLowerCase();
-  const filtered = results.filter((x) => x.toLowerCase().startsWith(search));
+  const filtered = results.filter((x) => x.toLowerCase().match(search));
   bindData(filtered);
 });
 
