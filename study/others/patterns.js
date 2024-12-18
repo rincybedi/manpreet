@@ -1,5 +1,5 @@
 // singleton Pattern
-// use case- 1 db con, logging, config settings
+// use case - 1 db con, logging, config settings
 class Singleton {
   constructor() {
     if (!Singleton.instance) {
@@ -14,7 +14,7 @@ const instance2 = new Singleton();
 console.log(instance1 === instance2);
 
 // factory
-// use case- 1. muliple types of db, 2. notification, 3.payment options
+// use case - 1. muliple types of db, 2. notification, 3.payment options
 class DatabaseFactory {
   static createDatabase(type) {
     switch (type) {
@@ -30,8 +30,8 @@ class DatabaseFactory {
   }
 }
 
-//observer
-//use case - event driven systems like event listeners, chat apps, context api, stock market price updating
+// observer
+// use case - event driven systems like event listeners, chat apps, context api, stock market price updating
 class Stock {
   constructor(symbol) {
     this.symbol = symbol;

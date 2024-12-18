@@ -1,0 +1,54 @@
+IAM: identity and access management
+User are mapped to usergroup 
+each user group has diff policies:
+like admin acces can fully read write permissions
+Eg new HR joins in, he ias provideed HR usergroup access management
+
+EC2:elastic cloud compute :
+run virtual intsnaces, define its system, pricing, location like AZ, network configuration, scalablity, load balancing, and
+host application
+-Per hour pricing
+-ASG - auto scaling group 
+-OS
+-libraries
+
+
+S3: file like system for storage purposes
+aws-sdk/client-s3
+PutObjectCommand GetObjectCommand
+Presigned url - without exposing creds - access key and secret key
+
+AWS APi gateway
+- protocol support - http, ws, rest
+- auth and security - integrates with IAM
+- Throttling - API abuse, dos 
+- Integrates well with s3, lambda, DynamoDB
+- provides monioring using cloudwatch
+
+
+RDS: like relational database, has setup like credentials, host or IP connection like a sql servers
+eg Aurora, DynamoDB,
+
+Aws lambda, serverless:
+- Pricing per invocation, else in sleep mode
+- execute-api.ap-south-1.amazonaws.com
+- is stateless, mongodb , connection add,destroyed, maybe need redis for state management
+- ec2 - can have connection pool
+- event driven 0 api gateway - alexa, cloudwatch, s3
+-store mongo creds in aws secret manager 
+
+lambda functions with
+ Get/post
+ request content type,
+ url
+ accept
+run code without server 
+can have perform and security
+ event is binded to lambda functions
+
+
+
+Cloudwatch : to log monitoring and analysis details 
+    
+
+

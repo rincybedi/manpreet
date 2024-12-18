@@ -8,7 +8,7 @@ For full text Search Queries
     - Synonyms
     - highlighting matching terms
 Provides analytics like histograms,summarizing data 
-Real time search as latency is high and is based on distributed architecture(horizontal scaling of nodes)
+Real time search as latency is low and is based on distributed architecture(horizontal scaling of nodes)
 
 NOT Acid compliant
 NOT optimized for data storage
@@ -23,7 +23,7 @@ Precision and recall - Score is high for more relevant documents
 ==========================================
 //Web vitals
 LCP and FCP
-- largest content to be painted in vieport <2.5 spaces
+- largest content to be painted in vieport <2.5 sec
 - cdn, compress image , use webp, ssr
 
 FID
@@ -46,13 +46,14 @@ COmponents:
 3. Topics and Partitions
 Autobalancing in partitions
 1 consumer can consume multiple partitions
-1 partition cant be consumed by multiple consumers
+1 partition cant be consumed by multiple consumers, but multiple consumer groups
 Queue and Pub/Sub 
 Rabbitmq, SQS - Queue system
-Queue : No of consumers = no of Partitions   
+Queue : No of consumers = no of Partitions
+Pub Sub : 1 partition can be consumed by multiple consumer groups   
 Kafka uses zookeeper as message broker
-Prompt user for name and partition like Manpreet North
-Based on location, message is either received at partiton 1 or 2
+Prompt user for name and partition like Manpreet North - Producer 
+Based on location, message is either received at partiton 1 or 2 - Consumers
 
 ========================================
 DOCKER 
@@ -100,36 +101,6 @@ React 19 upgrade:
 - use "server" - for ssr like next js
 ===========
 
-SSR vs Server components
-React js
-------
-
-Server:                                      DB Query
-
-Client: JS bundle download |  Render Shell |         | ReRender |
-                  Blank Screen            FCP                   Fully Interactive
-                                          TTI                     
-
-SEO - low 
-
-
-
-SSR
------
-
-
-Server: DB Query | Render Shell |
-
-Client:                            JS Bundle | Hydration |
-                                FCP                      TTI
-
-
-Server COmponents
------
-Most of the components are non interactive 
-200 - 150 are non interactive - they can be server COmponents
-50 can be marked 'use client'
-so that JS Bundle size is slow + Hydration can be quick
 
 
 =============
@@ -162,6 +133,88 @@ Cookies -(expiry, http only) Remember me, User theme, User preferences, SesionId
 session storage  (temp data)- form data, shopping cart data
 local storage (persistent data) - saved articles,      
 =========
+micro-services
+framework - express or nestjs , molecular
+- sync comm using http rest api using axios or GRpc(protocol buffer)
+- asyc using messaging system/event driven architecture like kafka , rabbitmq(amqplib)
+Keywords
+- service discovery - to enable services to find each other without hardcoding addresses like Consul
+- inter service comm
+- load balancing
+- security - Oauth, Jwt, api keys
+- gRPC - streaming apps like chatapps, IOT, video streaming
+- centralized loging using ELK
+
+Consul acts as a service registry, allowing Service A to discover all healthy instances of Service B dynamically.
+Service A retrieves the list of available Service B instances from Consul and implements a simple round-robin load-balancing mechanism to distribute requests evenly.
+
+kafka-node
+Producer send messages to a Topic
+Consumer/consumer group listen or subscribe to the topic .on("message")
+-re-queue failed messages for retry mechanisms.
+-Horizontal scalability through partitions.
 
 
+eg
+Order Service (Producer):
+Publishes an OrderCreated event to a Kafka topic when a new order is placed.
+Inventory Service (Consumer):
+Subscribes to the OrderCreated topic to update stock levels.
+Notification Service (Consumer):
+Subscribes to the same topic to send an order confirmation email to the customer.
+
+what if payment service in between Order and Inventory service
+- chained event-driven messaging 
+- Payment act as Consumer(OrderCreated) and Producer(PaymentProcessed)
+ Topics
+order-events: For events like OrderCreated.
+payment-events: For events like PaymentProcessed.
+
+If payment fails:
+
+The Payment Service can publish a PaymentFailed event instead of PaymentProcessed.
+Other services (e.g., Notification Service) can act on PaymentFailed events.
+
+======
+
+Rabbitmq vs kafka
+====================
+async - retry
+react - retry libraries
+Exponential backoff 
+kafka - no native retry, catch , publishMessage to retry topic, until retry limit, then DLQ
+
+Circuit breaker - oppsum , retryTime, fallback, thresoldPercent 
+=============
+Reverse proxy 
+========
+improve Backend
+1. Horizontal scaling
+2. Vertical scaling
+3. Load balancer 
+4. DB: sharding, indexing, connection pooling, read write splitting
+5. Async comm - kafka, event driven , worker pool
+6. CDN 
+7 Disributed fike - s3 
+8 API gateway 
+9 Lazy loading 
+10. elk 
+
+DB :
+execution plan, query optimizer, missing index, index frgmentaion, , index seek vs table scan , 
+=======
+
+Frontend hosting:
+Static site hosting - s3+cloudfront,  github pages
+Private hosting - DIgitocean 
+Containerized hosting - Docker + kubernetes, ECS,
+CDN Hosting - Akamai, Cloudfront 
+SSR - netlify, vercel,
+PAAS - Heroku 
+
+Backend:
+EC2, AWS lambda
+Heroku  
+
+====== d
 

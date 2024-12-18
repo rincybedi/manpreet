@@ -66,3 +66,19 @@ React 19 upgrade
 Webpack
 SSR vs Server components 
                 
+=======
+Service workers
+Web socket
+AWS
+sso 
+ssl     
+[15/12/24, 4:05:14 PM] Rincy: Ci cd
+[15/12/24, 4:08:04 PM] Rincy: Bfs dfs
+[15/12/24, 4:10:21 PM] Rincy: Rtl and jest
+[15/12/24, 5:44:34 PM] Rincy: Indexjng b tree
+[15/12/24, 5:44:37 PM] Rincy: Sharding
+[15/12/24, 7:16:53 PM] Rincy: Snetry in error boundary
+[15/12/24, 7:31:03 PM] Rincy: Redis
+retry
+Circuit breaker pattern - oppusum - open closed state , 
+hosting frontend in cdn and s3 bucket

@@ -2,11 +2,11 @@ const fs = require("fs");
 const EventEmitter = require("events");
 const express = require("express");
 // Prob 1
-// console.log("start");
-// fs.readFile("webpack1.txt", (err, data) => {
-//   if (err) throw err;
-//   console.log("file:", data.toString());
-// });
+console.log("start");
+fs.readFile("webpack1.txt", (err, data) => {
+  if (err) throw err;
+  console.log("file:", data.toString());
+});
 
 // setTimeout(() => console.log("timeout executed"), 0);
 // console.log("end");
@@ -59,7 +59,6 @@ const express = require("express");
 //   userID = response.body.id;
 // });
 
-
 // controllers / products - logic;
 const Products = require("../models/products");
 exports.create = async (req, res) => {
@@ -70,10 +69,20 @@ exports.create = async (req, res) => {
   product.destory();
 };
 
-
-
 // 1-35 items, pagination = 10
 // page = 2, limit = 3 - 21, 22, 23 records, eg2 25, 26, 27
-const start = page * pagination
-const end = start + limit
-const filtered = items.slice(start, end)
+const start = page * pagination;
+const end = start + limit;
+const filtered = items.slice(start, end);
+
+// round robin load balancing
+const currentIndex = 0
+async function roundRobinAlgo(params) {
+  const instances = await getAllInstances();
+  if (!instances.length) {
+    throw new Error("no instances");
+  }
+  const instnace = instances[currentIndex % instances.length];
+  return instnace;
+}
+

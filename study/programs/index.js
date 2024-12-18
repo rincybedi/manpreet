@@ -1,5 +1,4 @@
 // Problem 1 : Currying add(1)(2)
-
 function add(a) {
   return function (b) {
     return a + b;
@@ -118,10 +117,10 @@ function flatten(arr) {
 console.log(flatten([1, [2, [3, 4]]])); // Output: [1, 2, 3, 4]
 
 const person1 = {
-  name: "Abc",
+  name: "Abc",  
   displayName() {
     this.x = 10;
-    console.log("mnp", this.x, this.name); //undefined this-window
+    console.log("mnp--", this.x, this.name);
     console.log(window.x);
     console.log(document.x);
   },
@@ -261,7 +260,7 @@ class Person22 {
 var person222 = new Person22("Rincy");
 person222.getName();
 
-// extends before es6
+// extends or prototype inheritance before es6
 function Animal(legs) {
   this.legs = legs;
   this.walk = function () {
@@ -327,3 +326,27 @@ console.log(stack.getMin()); //3
 stack.pop();
 console.log(stack.getMin()); //5
 stack.printStack();
+
+
+
+function reverseWordsPreserveDelimiters(input) {
+  // Match words and delimiters separately
+  const parts = input.match(/(\w+)|(\W+)/g);
+
+  if (!parts) return input;
+
+  // Extract words while preserving delimiters in order
+  const words = parts.filter(part => /\w+/.test(part));
+  const reversedWords = words.reverse();
+
+  // Rebuild the string
+  let wordIndex = 0;
+  return parts
+    .map(part => (/\w+/.test(part) ? reversedWords[wordIndex++] : part))
+    .join('');
+}
+
+// Example usage
+const input = "Hello, world! How's it going?";
+const result = reverseWordsPreserveDelimiters(input);
+console.log(result); // Output: "going, it! How's world Hello?"

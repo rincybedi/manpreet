@@ -20,6 +20,7 @@ horizontal scaling
 Plan:
 1. requirements
 2. decision 
+    - fault tolerance
     - scalablity, 
     - availability
     - consistency, cap
@@ -34,10 +35,116 @@ Plan:
     - web socket
     - Elastic search
     - security
-    
+   ===== 
+Whatsapp
+
+- Requirememts FR:
+
+one to one chats 
+groups chats
+multimedia support
+end to end encryption
+NFR:
+High availability 
+Low latency 
+scalablity
+Durability
+
+High level architecture:
+Client - ios , android, web - encrypion, message ui,
+APi gateway - authentication, routing to microservices, Throttling 
+Backend:microservices:
+Chat Service - sendingm receivjg, storing message
+Notification Service - 
+Media Service - integrated iwth CDN 
+User Srevice - contact syncing, user session, profile
+Delivery service - sent, delivered, read, 
+Database -
+1. users, messages, groups, group_members, media,   
+Caching - Redis - 
+1. Hash - key userId, value - userMetadata
+2. Lists - Lpush [groupid] userIds
+
+Flow
+1. Client sends encrypted msgs, keys are exchanged in initial chat setup, server cant read
+2. Chat Service stores the msg, publish msg to a msg queue
+3. Delievery Service pulls msg 
+    if recepient is online - websocket conn
+    offile - Notification Sevice push Notification
+    Message is stored until user reads
+    When user comes online, it sync with srever to fetch undelivered msg
+    msg are marked delivered once acknoiwleded
+4. Chat servicd tracks message status - sent, read, deliovered
+5. Group chats - pub sub pattern using kafka , sender publish msg to topic
+6 Media service - aws s3 , cdn 
 
 
 
+=============
+Amazon - 
+FR:
+ User places order on product 
+ Order gets delivered 
+NFR
+ Highly available
+ High scalability
+
+ architecture :
+    1. FE - web /android /iphone
+    2. Services 
+        - User
+        - Product catalog
+        - Cart 
+        - order
+        - Inventory
+        - Delivery
+        - payment
+        - notification
+        - Recommendation
+        - Review
 
 
+Db:
+    - sql
+    users, orders, order_items, payments 
 
+Redis 
+    - cart
+    - product search
+    - session management
+elastic search engine
+    - full text search
+Kafka
+    -async communication 
+cdn
+    - assets
+Load balancer 
+    - nginx, aws elastic load balancer
+
+scaling
+    - cdn
+    - caching 
+    - partitioning - users and products across multiple db servers 
+    - horizontal scaling - db and app servers 
+
+FLOW:
+1. user search - ELK & Redis 
+2. Add to Cart - Cart Service , Inventory service
+3. Checkout - Order service, Payment service, notification service, nventory service
+4. Recommendation 
+
+
+==============
+ FE system Design
+ 1, React Container /Presentation pattern
+ 2. Atomic Pattern - atoms, molecule, organisms
+ 3. State management - redx, zustand, mobx, context api
+ 4. api management - Rest or Graphql, React Query 
+ 5. Styling frameworks - MUI, Tailwids, styles components 
+ 6. Performance Opt - Caching, hooks, 
+ 7 security
+ 8 Accessibility
+ 9 Code standards 
+ 10. Testing 
+ 11. Storybook 
+ ================

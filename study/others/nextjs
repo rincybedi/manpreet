@@ -1,0 +1,85 @@
+CSR - 
+App is loaded in client
+Fetch Data
+Data is rendered on Screen
+
+
+SSR -
+Data fetched on server
+Page rendered on server
+Page served to user - no loading delay
+
+export const getServerSideProps = async () =>{ return {props:'data'}}
+
+benefits
+- no network tab inspect (security - like exposing api key)
+- fast
+- seo good( html is fully data loaded)
+
+SSG -
+Data fetched on build time
+static/html pages mzde using that data
+serve html
+
+export const getStaticProps = async (context) =>{ return {props:'data'}}
+
+- api calls reduce
+- fast
+
+npm run build- a static page is created in .next/server/static/users.html
+Dynamic routing in nextjs using [id].jsx - retrieved using context.params.id
+nextjs need to know before build whats dynamic route can be expected using getStaticPaths , so that it can build those pages at build time
+=================
+React Server Components(React 18+) , Client compnents(basic), SSR:
+
+React js
+------
+
+Server:  Sent JS Bundle link                 DB Query(useeffect)
+
+Client: JS bundle download |  Render Shell |         | ReRender |
+                                        TTI and FCP            Ready with content        
+
+
+
+UX - low, User drop percent can increase
+DX - good
+SEO - low 
+Render shell - UI with loading indicator
+ 
+SSR
+-----
+
+
+Server: DB Query | Render Shell |
+
+Client:                            JS Bundle | Hydration |
+                                FCP                      TTI
+
+
+
+- seo and ux - good(no black screen)
+- dx
+
+
+Server COmponents
+-----
+Most of the components are non interactive 
+js bundle file is big- elimnate non interactive js download
+200 - 150 are non interactive - they can be server COmponents
+50 can be marked 'use client'
+so that JS Bundle size is slow + Hydration can be quick
+hydration- after js bundle is downloaded, dom traversal, event attachs, page interactive
+
+app dir- all pages are by default server components 
+cant add ineractivity to server componnets 
+
+
+
+
+
+
+
+
+
+

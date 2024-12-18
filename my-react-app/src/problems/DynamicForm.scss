@@ -1,0 +1,17 @@
+$primary-color: black;
+
+form {
+    border: 1px solid red;
+
+    input {
+        border: 2px solid $primary-color;
+    }
+
+    button {
+        background: blue;
+    }
+
+    .select-list {
+        color: aqua;
+    }
+}
