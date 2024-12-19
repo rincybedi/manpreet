@@ -206,9 +206,9 @@ const personwss = {
   name: "Alice",
   hobbies: ["reading", "hiking", "coding"],
   printHobbies() {
-    this.hobbies.forEach((hobby) => {
+    this.hobbies.forEach(function(hobby) {
       console.log(`${this.name} enjoys ${hobby}`);
-    });
+    })
   },
 };
 

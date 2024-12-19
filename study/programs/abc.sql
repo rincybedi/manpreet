@@ -17,12 +17,3 @@ addUser(name, email, userTimestamp)
 if(userTimestamp){
   dbOpe()
 }
-
-
-LLID manbedi@publicisgroupe.net
-arun raghwan --PP
-https://vox.publicissapient.com/home/ls/content/5357013080997888/india-ps-start-content-decks
-https://marcel.ai/app 
-
-arun.raghavan@publicissapient.com
-manpreetkaur.bedi@publicissapient.com
